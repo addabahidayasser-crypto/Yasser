@@ -13,15 +13,14 @@ body {
 }
 
 /* ========================= */
-/* Animated Blurry Gradient Background */
-/* ========================= */
+/* Blurry Animated Gradient Background */
 .background {
     position: fixed;
     top:0; left:0;
     width:100%;
     height:100%;
     z-index:-2;
-    background: linear-gradient(270deg, #0a1f44, #ff7a00, #0a1f44);
+    background: linear-gradient(135deg, #0a1f44, #ff7a00, #0a3c6f, #ff7a00);
     background-size: 600% 600%;
     filter: blur(120px);
     animation: gradientShift 20s ease infinite;
@@ -34,7 +33,6 @@ body {
 
 /* ========================= */
 /* Navbar (App Style) */
-/* ========================= */
 nav {
     display:flex;
     justify-content:center;
@@ -42,13 +40,13 @@ nav {
     padding:15px;
     position:sticky;
     top:0;
-    background:rgba(0,0,0,0.4);
+    background:rgba(0,0,0,0.3);
     backdrop-filter:blur(15px);
     z-index:10;
 }
 nav button {
     position: relative;
-    background: linear-gradient(135deg,#ff7a00,#ff9a3c);
+    background: linear-gradient(135deg,#0a1f44,#ff7a00);
     border:none;
     padding:12px 20px;
     border-radius:30px;
@@ -60,31 +58,11 @@ nav button {
     transition: all 0.4s ease;
 }
 nav button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(255,122,0,0.7);
-}
-/* Button ripple effect */
-nav button::after {
-    content:"";
-    position:absolute;
-    width:100px; height:100px;
-    background:rgba(255,255,255,0.3);
-    display:block;
-    border-radius:50%;
-    transform:scale(0);
-    opacity:0;
-    pointer-events:none;
-    transition: transform 0.5s, opacity 1s;
-}
-nav button:active::after {
-    transform:scale(2.5);
-    opacity:0.5;
-    transition:0s;
+    transform: scale(1.05);
 }
 
 /* ========================= */
 /* Page container styles */
-/* ========================= */
 .page {
     display:none;
     padding:40px 20px;
@@ -95,8 +73,7 @@ nav button:active::after {
 .page.active { display:block; }
 
 /* ========================= */
-/* Card styles (Glass UI + Float) */
-/* ========================= */
+/* Card styles (Glass + Float) */
 .card {
     background:rgba(255,255,255,0.07);
     padding:30px;
@@ -107,8 +84,7 @@ nav button:active::after {
     will-change: transform;
 }
 .card:hover {
-    transform: scale(1.05) translateY(-5px);
-    box-shadow:0 0 40px rgba(255,122,0,0.5);
+    transform: scale(1.03) translateY(-3px);
 }
 
 /* ========================= */
@@ -123,28 +99,26 @@ body.add-float .card {
     transform: rotateY(var(--mouseX,0deg)) rotateX(var(--mouseY,0deg)) scale(1.02);
 }
 
+/* ========================= */
 /* Titles & text */
-h1 { color:#ff7a00; text-align:center; margin-top:40px; font-size:3rem; text-shadow: 0 0 10px rgba(255,122,0,0.5);}
-h2 { color:#ff9a3c; font-size:2rem; margin-bottom:20px; text-align:center; text-shadow:0 0 5px rgba(255,122,0,0.4);}
+h1 { color:#ff7a00; text-align:center; margin-top:40px; font-size:3rem;}
+h2 { color:#ff9a3c; font-size:2rem; margin-bottom:20px; text-align:center;}
 p, li { line-height:1.8; font-size:1rem; }
 ul { margin-top:10px; }
 
-/* Images & videos with subtle pulse */
+/* ========================= */
+/* Images & videos subtle pulse */
 img, iframe {
     width:100%;
     border-radius:20px;
     margin-top:15px;
     transition: all 0.5s ease;
 }
-img:hover, iframe:hover { transform: scale(1.02); box-shadow:0 0 25px rgba(255,122,0,0.4);}
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.01); }
-}
-img, iframe { animation: pulse 6s infinite; }
+img:hover, iframe:hover { transform: scale(1.01); }
 
+/* ========================= */
 /* Fade animation */
 @keyframes fadeUp {
     from { opacity:0; transform:translateY(20px); }
     to { opacity:1; transform:translateY(0); }
-}
+    }
