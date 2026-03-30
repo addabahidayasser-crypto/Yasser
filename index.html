@@ -20,18 +20,6 @@
     <button onclick="showPage('tips')">Tips</button>
 </nav>
 
-<!-- 3D Wave -->
-<div class="wave">
-    <svg class="wave1" viewBox="0 0 1440 320">
-        <path fill="#ff7a00" fill-opacity="0.5"
-        d="M0,160L60,165C120,170,240,180,360,170C480,160,600,130,720,130C840,130,960,160,1080,170C1200,180,1320,170,1380,165L1440,160V320H0Z"></path>
-    </svg>
-    <svg class="wave2" viewBox="0 0 1440 320">
-        <path fill="#ff7a00" fill-opacity="0.3"
-        d="M0,120L60,125C120,130,240,140,360,130C480,120,600,90,720,90C840,90,960,120,1080,130C1200,140,1320,130,1380,125L1440,120V320H0Z"></path>
-    </svg>
-</div>
-
 <!-- Home Page -->
 <div id="home" class="page active">
     <div class="card">
@@ -39,35 +27,72 @@
         <p>Welcome to the Swimming App! Learn techniques, styles, and tips to improve your swimming skills.</p>
         <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Swimming Home">
         <iframe src="https://www.youtube.com/embed/5HLW2AI1Ink" allowfullscreen></iframe>
+        <p>Learn drills for all strokes, common mistakes to avoid, and exercises for efficiency based on NatationPourTous.com.</p>
     </div>
 </div>
 
 <!-- Styles Page -->
 <div id="styles" class="page">
+    <!-- Freestyle -->
     <div class="card">
-        <h2>🏊 Freestyle</h2>
-        <p>Fastest and most efficient stroke.</p>
+        <h2>🏊 Freestyle (Crawl)</h2>
+        <p>Focus on head position, arm movement, and body alignment.</p>
+        <ul>
+            <li>Swim with a frontal snorkel – focus on alignment and propulsion</li>
+            <li>Opposition arm kicks – develop roll and breathing placement</li>
+            <li>Crawl rattrapé – practice arm positioning and acceleration</li>
+            <li>Pull buoy between ankles – improves body alignment</li>
+            <li>Kicking drills with board – strengthens legs</li>
+            <li>Single-arm crawl – refine technique on each side</li>
+            <li>Pause drills – improve balance and acceleration</li>
+            <li>Crawl with paddles (light) – refine hand placement</li>
+        </ul>
         <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e" alt="Freestyle">
         <iframe src="https://www.youtube.com/embed/5HLW2AI1Ink" allowfullscreen></iframe>
     </div>
 
+    <!-- Backstroke -->
     <div class="card">
         <h2>🏊 Backstroke</h2>
-        <p>Swim on your back with steady kicks.</p>
+        <p>Maintain stable body alignment, arm rotation, and kick rhythm.</p>
+        <ul>
+            <li>Kick with fins – increase propulsion and ankle flexibility</li>
+            <li>Rolled kick drills – improve shoulder roll coordination</li>
+            <li>Opposition drills – body alignment and roll timing</li>
+            <li>Backstroke “catch and pull” – refine arm catch</li>
+        </ul>
         <img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50" alt="Backstroke">
         <iframe src="https://www.youtube.com/embed/1rKCME8P3uQ" allowfullscreen></iframe>
     </div>
 
+    <!-- Breaststroke -->
     <div class="card">
         <h2>🏊 Breaststroke</h2>
-        <p>Slow but technical stroke with glide.</p>
+        <p>Coordinate arm and leg movements, focus on glide and timing.</p>
+        <ul>
+            <li>Leg movement against the wall – perfect foot and knee orientation</li>
+            <li>Back-on-back legs – strengthen leg control</li>
+            <li>Leg-only with board – combine kick with breathing</li>
+            <li>Exaggerated glide after kick – emphasize efficient glide</li>
+            <li>Pause drills – improve arm and breathing coordination</li>
+            <li>Brasse with tennis ball – enhance head and body alignment awareness</li>
+        </ul>
         <img src="https://images.unsplash.com/photo-1620164161483-8c47b47c5e52" alt="Breaststroke">
         <iframe src="https://www.youtube.com/embed/2-LAMcpzODU" allowfullscreen></iframe>
     </div>
 
+    <!-- Butterfly -->
     <div class="card">
         <h2>🏊 Butterfly</h2>
-        <p>Powerful and advanced stroke.</p>
+        <p>Focus on powerful undulating motion, synchronized breathing, and strong kick.</p>
+        <ul>
+            <li>Underwater body undulations – develop leg power and rhythm</li>
+            <li>Head-lead undulations – proper body motion as arms enter</li>
+            <li>Duck dive – correct body stabilization</li>
+            <li>Single-arm butterfly – focus on pulse timing and coordination</li>
+            <li>Alternate drills with/without board – integrate motion with kick propulsion</li>
+            <li>Vertical undulations – improve leg thrust and timing</li>
+        </ul>
         <img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50" alt="Butterfly">
         <iframe src="https://www.youtube.com/embed/7d8s7o6gkL0" allowfullscreen></iframe>
     </div>
@@ -76,12 +101,15 @@
 <!-- Tips Page -->
 <div id="tips" class="page">
     <div class="card">
-        <h2>💡 Tips</h2>
+        <h2>💡 General Tips</h2>
         <ul>
-            <li>Keep your body horizontal in water</li>
-            <li>Control your breathing</li>
-            <li>Stay relaxed to reduce fatigue</li>
-            <li>Practice regularly</li>
+            <li>Keep your body horizontal in water for better efficiency</li>
+            <li>Control your breathing, especially in butterfly and freestyle</li>
+            <li>Stay relaxed to reduce fatigue and improve glide</li>
+            <li>Practice drills progressively to isolate technique before full strokes</li>
+            <li>Count your arm cycles per length to measure rhythm stability</li>
+            <li>Use boards, paddles, or fins as recommended for targeted drills</li>
+            <li>Review and correct common errors (NatationPourTous.com advice)</li>
         </ul>
         <img src="https://images.unsplash.com/photo-1560090995-01632a28895b" alt="Tips">
         <iframe src="https://www.youtube.com/embed/5HLW2AI1Ink" allowfullscreen></iframe>
@@ -97,4 +125,19 @@ function showPage(id){
 </script>
 
 </body>
-            </html>
+    </html><script>
+// Page switch logic
+function showPage(id){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+// Card float with mouse
+document.body.classList.add('add-float');
+document.addEventListener('mousemove', e => {
+    const mouseX = ((e.clientX / window.innerWidth) - 0.5) * 20; // -10 to 10
+    const mouseY = ((e.clientY / window.innerHeight) - 0.5) * 20; // -10 to 10
+    document.body.style.setProperty('--mouseX', `${mouseX}deg`);
+    document.body.style.setProperty('--mouseY', `${-mouseY}deg`);
+});
+    </script>
