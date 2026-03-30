@@ -1,117 +1,33 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swimming</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: white;
-            background: linear-gradient(135deg, #0a1f44, #1e90ff);
-        }
-
-        header {
-            text-align: center;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        section {
-            padding: 30px;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        h1, h2 {
-            color: #87cefa;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.3);
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>Swimming</h1>
-    <p>The Art of Moving Through Water</p>
-</header>
-
-<section>
-    <div class="card">
-        <h2>🏊‍♂️ What is Swimming?</h2>
-        <p>
-            Swimming is a water-based activity that involves moving the body through water using arms and legs.
-            It is both a sport and a recreational activity enjoyed worldwide.
-        </p>
-    </div>
-
-    <div class="card">
-        <h2>🌊 Benefits of Swimming</h2>
-        <ul>
-            <li>Improves cardiovascular health</li>
-            <li>Builds muscle strength</li>
-            <li>Low impact on joints</li>
-            <li>Reduces stress and improves mood</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>🏅 Types of Swimming Strokes</h2>
-        <ul>
-            <li>Freestyle</li>
-            <li>Backstroke</li>
-            <li>Breaststroke</li>
-            <li>Butterfly</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>💡 Fun Fact</h2>
-        <p>
-            Swimming is one of the few sports that works almost every muscle in the body at the same time!
-        </p>
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 Swimming Page</p>
-</footer>
-
-</body>
-  </html> <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Swimming Technique</title>
 
-    <!-- CSS (separated section) -->
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0a1f44, #b57edc, #ff4d6d);
             color: white;
+            overflow-x: hidden;
+
+            /* Animated gradient */
+            background: linear-gradient(-45deg, #0a1f44, #b57edc, #ff4d6d, #ffc0cb);
+            background-size: 400% 400%;
+            animation: gradientMove 12s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
         }
 
         header {
             text-align: center;
             padding: 40px;
             background: rgba(0,0,0,0.4);
+            animation: fadeIn 2s ease;
         }
 
         section {
@@ -125,7 +41,14 @@
             margin: 20px 0;
             padding: 20px;
             border-radius: 15px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeUp 1s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255,255,255,0.3);
         }
 
         h1, h2 {
@@ -136,10 +59,41 @@
             line-height: 1.8;
         }
 
+        img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border: none;
+        }
+
         footer {
             text-align: center;
             padding: 15px;
             background: rgba(0,0,0,0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -148,55 +102,45 @@
 
 <header>
     <h1>🏊 Swimming Technique</h1>
-    <p>Improve your position and swim efficiently</p>
+    <p>Improve your position and swim like a pro</p>
 </header>
 
 <section>
 
     <div class="card">
-        <h2>🌊 About Swimming</h2>
+        <h2>🌊 Swimming Overview</h2>
         <p>
-            Swimming is a complete sport that requires good coordination, balance, and technique.
-            A good body position helps reduce resistance and move faster in water.
+            Swimming is a complete sport that improves endurance, strength, and coordination.
+            A good position in the water is essential to move efficiently and avoid fatigue.
         </p>
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Swimming">
     </div>
 
     <div class="card">
-        <h2>⚙️ Tips to Fix Your Swimming Position</h2>
+        <h2>⚙️ Position Tips (Technique)</h2>
         <ul>
-            <li>Keep your body horizontal to reduce water resistance.</li>
-            <li>Align your head with your body (don’t lift it too much).</li>
-            <li>Look down toward the pool, not forward.</li>
-            <li>Keep your hips and legs near the surface.</li>
-            <li>Stretch your body forward to improve glide.</li>
+            <li>Keep your body horizontal to reduce resistance</li>
+            <li>Align your head with your body</li>
+            <li>Look down, not forward</li>
+            <li>Keep your hips close to the surface</li>
+            <li>Stretch your body forward for better glide</li>
         </ul>
-        <p>
-            👉 A horizontal and aligned body helps reduce drag and improves efficiency. 0
-        </p>
+        <img src="https://images.unsplash.com/photo-1560090995-01632a28895b" alt="Swimming Technique">
     </div>
 
     <div class="card">
         <h2>💨 Breathing Tips</h2>
         <ul>
-            <li>Exhale slowly underwater.</li>
-            <li>Keep breathing natural, no strict rule.</li>
-            <li>Avoid holding your breath too long.</li>
+            <li>Exhale slowly underwater</li>
+            <li>Do not hold your breath</li>
+            <li>Keep a regular breathing rhythm</li>
+            <li>Stay relaxed</li>
         </ul>
-        <p>
-            👉 Breathing rhythm depends on the swimmer, there is no single rule. 1
-        </p>
     </div>
 
     <div class="card">
-        <h2>🏋️ Technique Exercises</h2>
-        <ul>
-            <li>Swim with a snorkel to focus on body position.</li>
-            <li>Use pull buoy to improve alignment.</li>
-            <li>Practice one-arm swimming to improve coordination.</li>
-        </ul>
-        <p>
-            👉 Exercises help isolate movements and fix technical mistakes. 2
-        </p>
+        <h2>🎥 Learn with Video</h2>
+        <iframe src="https://www.youtube.com/embed/5HLW2AI1Ink" allowfullscreen></iframe>
     </div>
 
 </section>
@@ -206,4 +150,4 @@
 </footer>
 
 </body>
-    </html>
+</html>
