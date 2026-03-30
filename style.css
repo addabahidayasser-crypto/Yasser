@@ -8,11 +8,11 @@
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    color: white;
+    color: #e0e0f0;
     background: #0a1f44; /* fallback */
     overflow-x: hidden;
     position: relative;
-    cursor: default;
+    line-height: 1.6;
 }
 
 /* ========================= */
@@ -23,8 +23,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -2;
-    background: linear-gradient(135deg, #0b1f3f, #0a2b5f, #2e0f4d); /* navy -> dark blue -> dark purple */
+    z-index: -1;
+    background: linear-gradient(135deg, #0b1f3f, #0a2b5f, #2e0f4d, #0b1f3f);
     background-size: 600% 600%;
     filter: blur(120px);
     animation: gradientShift 25s ease infinite;
@@ -37,12 +37,12 @@ body {
 }
 
 /* ========================= */
-/* Page container styles */
+/* Page container */
 .page {
     display: none;
     padding: 40px 20px;
-    max-width: 900px;
-    margin: auto;
+    max-width: 1000px;
+    margin: 0 auto;
     animation: fadeUp 0.8s ease;
 }
 
@@ -51,37 +51,24 @@ body {
 }
 
 /* ========================= */
-/* Card styles (Glass UI) */
+/* Card styles (Glass effect) */
 .card {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.07);
     padding: 30px;
-    border-radius: 25px;
+    border-radius: 20px;
     margin-bottom: 35px;
-    backdrop-filter: blur(20px);
-    transition: all 0.5s ease, transform 0.2s ease;
-    will-change: transform;
+    backdrop-filter: blur(25px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: all 0.4s ease;
 }
 
 .card:hover {
-    transform: scale(1.03) translateY(-3px);
+    transform: scale(1.02);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.45);
 }
 
 /* ========================= */
-/* Floating 3D cards effect */
-body {
-    perspective: 1000px;
-}
-
-.card {
-    transform-style: preserve-3d;
-}
-
-body.add-float .card {
-    transform: rotateY(var(--mouseX,0deg)) rotateX(var(--mouseY,0deg)) scale(1.02);
-}
-
-/* ========================= */
-/* Titles & text */
+/* Typography */
 h1 {
     color: #a3b0d0;
     text-align: center;
@@ -97,25 +84,27 @@ h2 {
 }
 
 p, li {
-    line-height: 1.8;
     font-size: 1rem;
 }
 
 ul {
     margin-top: 10px;
+    padding-left: 20px;
 }
 
 /* ========================= */
-/* Images & videos subtle pulse */
+/* Images & Videos */
 img, iframe {
     width: 100%;
     border-radius: 20px;
     margin-top: 15px;
-    transition: all 0.5s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
 
 img:hover, iframe:hover {
     transform: scale(1.01);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* ========================= */
@@ -124,3 +113,23 @@ img:hover, iframe:hover {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* ========================= */
+/* Buttons */
+button {
+    background: rgba(15,35,60,0.8);
+    color: #c1cbe0;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+button:hover {
+    background: rgba(15,35,60,1);
+    transform: scale(1.05);
+                     }
