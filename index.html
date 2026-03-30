@@ -1,153 +1,220 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Swimming Technique</title>
+<meta charset="UTF-8">
+<title>Swimming Pro UI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: white;
-            overflow-x: hidden;
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0a1f44;
+    color: white;
+    overflow-x: hidden;
+}
 
-            /* Animated gradient */
-            background: linear-gradient(-45deg, #0a1f44, #b57edc, #ff4d6d, #ffc0cb);
-            background-size: 400% 400%;
-            animation: gradientMove 12s ease infinite;
-        }
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(0,0,0,0.5);
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
 
-        @keyframes gradientMove {
-            0% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            100% {background-position: 0% 50%;}
-        }
+nav button {
+    background: #ff7a00;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        header {
-            text-align: center;
-            padding: 40px;
-            background: rgba(0,0,0,0.4);
-            animation: fadeIn 2s ease;
-        }
+nav button:hover {
+    transform: scale(1.1);
+    background: #ff9a3c;
+}
 
-        section {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
+/* SECTIONS */
+section {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+    animation: fadeUp 1s ease;
+}
 
-        .card {
-            background: rgba(255,255,255,0.1);
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 15px;
-            backdrop-filter: blur(12px);
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeUp 1s ease;
-        }
+.card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(12px);
+    transition: 0.3s;
+}
 
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(255,255,255,0.3);
-        }
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(255,122,0,0.4);
+}
 
-        h1, h2 {
-            color: #ffd1dc;
-        }
+h2 {
+    color: #ff9a3c;
+}
 
-        ul {
-            line-height: 1.8;
-        }
+/* IMAGE */
+img {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 10px;
+}
 
-        img {
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
+/* VIDEO */
+iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    margin-top: 10px;
+    border: none;
+}
 
-        iframe {
-            width: 100%;
-            height: 400px;
-            border-radius: 10px;
-            margin-top: 10px;
-            border: none;
-        }
+/* WAVE */
+.wave {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+}
 
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: rgba(0,0,0,0.4);
-        }
+.wave svg {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    animation: waveMove 8s linear infinite;
+}
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
+@keyframes waveMove {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+/* ANIMATIONS */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    color: #ff7a00;
+}
+
+/* BUTTON SCROLL */
+html {
+    scroll-behavior: smooth;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>🏊 Swimming Technique</h1>
-    <p>Improve your position and swim like a pro</p>
+    <h1>🏊 Swimming Pro Guide</h1>
+    <p>Master every swimming style</p>
 </header>
 
-<section>
+<nav>
+    <button onclick="goTo('freestyle')">Freestyle</button>
+    <button onclick="goTo('backstroke')">Backstroke</button>
+    <button onclick="goTo('breaststroke')">Breaststroke</button>
+    <button onclick="goTo('butterfly')">Butterfly</button>
+</nav>
 
-    <div class="card">
-        <h2>🌊 Swimming Overview</h2>
-        <p>
-            Swimming is a complete sport that improves endurance, strength, and coordination.
-            A good position in the water is essential to move efficiently and avoid fatigue.
-        </p>
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Swimming">
-    </div>
+<div class="wave">
+<svg viewBox="0 0 1440 320">
+<path fill="#ff7a00" fill-opacity="0.5"
+d="M0,160L60,165C120,170,240,180,360,170C480,160,600,130,720,130C840,130,960,160,1080,170C1200,180,1320,170,1380,165L1440,160V320H0Z"></path>
+</svg>
+</div>
 
-    <div class="card">
-        <h2>⚙️ Position Tips (Technique)</h2>
-        <ul>
-            <li>Keep your body horizontal to reduce resistance</li>
-            <li>Align your head with your body</li>
-            <li>Look down, not forward</li>
-            <li>Keep your hips close to the surface</li>
-            <li>Stretch your body forward for better glide</li>
-        </ul>
-        <img src="https://images.unsplash.com/photo-1560090995-01632a28895b" alt="Swimming Technique">
-    </div>
-
-    <div class="card">
-        <h2>💨 Breathing Tips</h2>
-        <ul>
-            <li>Exhale slowly underwater</li>
-            <li>Do not hold your breath</li>
-            <li>Keep a regular breathing rhythm</li>
-            <li>Stay relaxed</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>🎥 Learn with Video</h2>
-        <iframe src="https://www.youtube.com/embed/5HLW2AI1Ink" allowfullscreen></iframe>
-    </div>
-
+<section id="freestyle">
+<div class="card">
+<h2>🏊 Freestyle</h2>
+<p><b>Tips:</b></p>
+<ul>
+<li>Keep body straight and horizontal</li>
+<li>Rotate your body slightly</li>
+<li>Kick continuously</li>
+</ul>
+<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
+<iframe src="https://www.youtube.com/embed/5HLW2AI1Ink" allowfullscreen></iframe>
+</div>
 </section>
 
-<footer>
-    <p>© 2026 Swimming Guide</p>
-</footer>
+<section id="backstroke">
+<div class="card">
+<h2>🏊 Backstroke</h2>
+<p><b>Tips:</b></p>
+<ul>
+<li>Keep hips high</li>
+<li>Look straight up</li>
+<li>Use steady kicks</li>
+</ul>
+<img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50">
+<iframe src="https://www.youtube.com/embed/1rKCME8P3uQ" allowfullscreen></iframe>
+</div>
+</section>
+
+<section id="breaststroke">
+<div class="card">
+<h2>🏊 Breaststroke</h2>
+<p><b>Tips:</b></p>
+<ul>
+<li>Glide after each stroke</li>
+<li>Keep movements smooth</li>
+<li>Coordinate arms and legs</li>
+</ul>
+<img src="https://images.unsplash.com/photo-1620164161483-8c47b47c5e52">
+<iframe src="https://www.youtube.com/embed/2-LAMcpzODU" allowfullscreen></iframe>
+</div>
+</section>
+
+<section id="butterfly">
+<div class="card">
+<h2>🏊 Butterfly</h2>
+<p><b>Tips:</b></p>
+<ul>
+<li>Use wave-like body motion</li>
+<li>Kick twice per stroke</li>
+<li>Stay relaxed</li>
+</ul>
+<img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50">
+<iframe src="https://www.youtube.com/embed/7d8s7o6gkL0" allowfullscreen></iframe>
+</div>
+</section>
+
+<script>
+function goTo(id) {
+    document.getElementById(id).scrollIntoView({behavior: "smooth"});
+}
+</script>
 
 </body>
 </html>
