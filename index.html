@@ -8,12 +8,12 @@
 </head>
 <body>
 
-<!-- Blurry background -->
+<!-- Blurry Background -->
 <div class="background"></div>
 
 <h1>🏊 Swimming App</h1>
 
-<!-- Navigation buttons -->
+<!-- Navigation -->
 <nav>
     <button onclick="showPage('home')">Home</button>
     <button onclick="showPage('styles')">Styles</button>
@@ -24,10 +24,10 @@
 <div id="home" class="page active">
     <div class="card">
         <h2>🏠 Welcome</h2>
-        <p>Welcome to the Swimming App! Learn techniques, styles, and tips to improve your swimming skills.</p>
+        <p>Welcome to the Swimming App! Learn techniques, styles, and tips to improve your swimming skills based on NatationPourTous.com.</p>
         <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Swimming Home">
         <iframe src="https://www.youtube.com/embed/5HLW2AI1Ink" allowfullscreen></iframe>
-        <p>Learn drills for all strokes, common mistakes to avoid, and exercises for efficiency based on NatationPourTous.com.</p>
+        <p>Explore drills, common mistakes, and training tips for all swimming strokes.</p>
     </div>
 </div>
 
@@ -122,22 +122,16 @@ function showPage(id){
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     document.getElementById(id).classList.add('active');
 }
-</script>
-
-</body>
-    </html><script>
-// Page switch logic
-function showPage(id){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-}
 
 // Card float with mouse
 document.body.classList.add('add-float');
 document.addEventListener('mousemove', e => {
-    const mouseX = ((e.clientX / window.innerWidth) - 0.5) * 20; // -10 to 10
-    const mouseY = ((e.clientY / window.innerHeight) - 0.5) * 20; // -10 to 10
+    const mouseX = ((e.clientX / window.innerWidth) - 0.5) * 20;
+    const mouseY = ((e.clientY / window.innerHeight) - 0.5) * 20;
     document.body.style.setProperty('--mouseX', `${mouseX}deg`);
     document.body.style.setProperty('--mouseY', `${-mouseY}deg`);
 });
-    </script>
+</script>
+
+</body>
+    </html>
