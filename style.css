@@ -1,124 +1,126 @@
 /* ========================= */
 /* Reset & Global Styles */
-/* ========================= */
-* { margin:0; padding:0; box-sizing:border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', sans-serif;
-    color:white;
-    background:#0a1f44;
-    overflow-x:hidden;
-    position:relative;
-    transition: background 1s ease;
+    color: white;
+    background: #0a1f44; /* fallback */
+    overflow-x: hidden;
+    position: relative;
     cursor: default;
 }
 
 /* ========================= */
-/* Blurry Animated Gradient Background */
+/* Blurry Gradient Background */
 .background {
     position: fixed;
-    top:0; left:0;
-    width:100%;
-    height:100%;
-    z-index:-2;
-    background: linear-gradient(135deg, #0a1f44, #ff7a00, #0a3c6f, #ff7a00);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: linear-gradient(135deg, #0b1f3f, #0a2b5f, #2e0f4d); /* navy -> dark blue -> dark purple */
     background-size: 600% 600%;
     filter: blur(120px);
-    animation: gradientShift 20s ease infinite;
-}
-@keyframes gradientShift {
-    0% { background-position:0% 50%; }
-    50% { background-position:100% 50%; }
-    100% { background-position:0% 50%; }
+    animation: gradientShift 25s ease infinite;
 }
 
-/* ========================= */
-/* Navbar (App Style) */
-nav {
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    padding:15px;
-    position:sticky;
-    top:0;
-    background:rgba(0,0,0,0.3);
-    backdrop-filter:blur(15px);
-    z-index:10;
-}
-nav button {
-    position: relative;
-    background: linear-gradient(135deg,#0a1f44,#ff7a00);
-    border:none;
-    padding:12px 20px;
-    border-radius:30px;
-    color:white;
-    font-weight:bold;
-    font-size:1rem;
-    cursor:pointer;
-    overflow:hidden;
-    transition: all 0.4s ease;
-}
-nav button:hover {
-    transform: scale(1.05);
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* ========================= */
 /* Page container styles */
 .page {
-    display:none;
-    padding:40px 20px;
-    max-width:900px;
-    margin:auto;
-    animation:fadeUp 0.8s ease;
+    display: none;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+    animation: fadeUp 0.8s ease;
 }
-.page.active { display:block; }
+
+.page.active {
+    display: block;
+}
 
 /* ========================= */
-/* Card styles (Glass + Float) */
+/* Card styles (Glass UI) */
 .card {
-    background:rgba(255,255,255,0.07);
-    padding:30px;
-    border-radius:25px;
-    margin-bottom:35px;
-    backdrop-filter:blur(20px);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 25px;
+    margin-bottom: 35px;
+    backdrop-filter: blur(20px);
     transition: all 0.5s ease, transform 0.2s ease;
     will-change: transform;
 }
+
 .card:hover {
     transform: scale(1.03) translateY(-3px);
 }
 
 /* ========================= */
-/* Floating cards based on mouse */
+/* Floating 3D cards effect */
 body {
-    perspective:1000px;
+    perspective: 1000px;
 }
+
 .card {
     transform-style: preserve-3d;
 }
+
 body.add-float .card {
     transform: rotateY(var(--mouseX,0deg)) rotateX(var(--mouseY,0deg)) scale(1.02);
 }
 
 /* ========================= */
 /* Titles & text */
-h1 { color:#ff7a00; text-align:center; margin-top:40px; font-size:3rem;}
-h2 { color:#ff9a3c; font-size:2rem; margin-bottom:20px; text-align:center;}
-p, li { line-height:1.8; font-size:1rem; }
-ul { margin-top:10px; }
+h1 {
+    color: #a3b0d0;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 3rem;
+}
+
+h2 {
+    color: #c1cbe0;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p, li {
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+ul {
+    margin-top: 10px;
+}
 
 /* ========================= */
 /* Images & videos subtle pulse */
 img, iframe {
-    width:100%;
-    border-radius:20px;
-    margin-top:15px;
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 15px;
     transition: all 0.5s ease;
 }
-img:hover, iframe:hover { transform: scale(1.01); }
+
+img:hover, iframe:hover {
+    transform: scale(1.01);
+}
 
 /* ========================= */
 /* Fade animation */
 @keyframes fadeUp {
-    from { opacity:0; transform:translateY(20px); }
-    to { opacity:1; transform:translateY(0); }
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
