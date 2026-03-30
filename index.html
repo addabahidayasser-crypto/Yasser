@@ -2,16 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Swimming Pro UI</title>
+<title>Swimming App</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: #0a1f44;
     color: white;
-    overflow-x: hidden;
+    background: #0a1f44;
+    overflow: hidden;
+}
+
+/* 3D WATER CANVAS */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 /* NAVBAR */
@@ -20,11 +28,8 @@ nav {
     justify-content: center;
     gap: 15px;
     padding: 15px;
-    background: rgba(0,0,0,0.5);
-    position: sticky;
-    top: 0;
+    background: rgba(0,0,0,0.4);
     backdrop-filter: blur(10px);
-    z-index: 1000;
 }
 
 nav button {
@@ -39,22 +44,27 @@ nav button {
 
 nav button:hover {
     transform: scale(1.1);
-    background: #ff9a3c;
 }
 
-/* SECTIONS */
-section {
+/* PAGES */
+.page {
+    display: none;
+    padding: 40px 20px;
     max-width: 900px;
     margin: auto;
-    padding: 40px 20px;
-    animation: fadeUp 1s ease;
+    animation: fade 0.6s ease;
 }
 
+.active {
+    display: block;
+}
+
+/* CARDS */
 .card {
     background: rgba(255,255,255,0.08);
-    border-radius: 20px;
     padding: 20px;
-    margin-bottom: 30px;
+    border-radius: 20px;
+    margin-bottom: 25px;
     backdrop-filter: blur(12px);
     transition: 0.3s;
 }
@@ -64,18 +74,13 @@ section {
     box-shadow: 0 0 20px rgba(255,122,0,0.4);
 }
 
-h2 {
-    color: #ff9a3c;
-}
-
-/* IMAGE */
+/* MEDIA */
 img {
     width: 100%;
     border-radius: 15px;
     margin-top: 10px;
 }
 
-/* VIDEO */
 iframe {
     width: 100%;
     height: 300px;
@@ -84,136 +89,135 @@ iframe {
     border: none;
 }
 
-/* WAVE */
-.wave {
-    position: relative;
-    width: 100%;
-    height: 120px;
-    overflow: hidden;
-}
-
-.wave svg {
-    position: absolute;
-    width: 200%;
-    height: 100%;
-    animation: waveMove 8s linear infinite;
-}
-
-@keyframes waveMove {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* HEADER */
-header {
+/* TITLES */
+h1, h2 {
+    color: #ff9a3c;
     text-align: center;
-    padding: 40px 20px;
 }
 
-header h1 {
-    color: #ff7a00;
-}
-
-/* BUTTON SCROLL */
-html {
-    scroll-behavior: smooth;
+/* ANIMATION */
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>🏊 Swimming Pro Guide</h1>
-    <p>Master every swimming style</p>
-</header>
+<canvas id="water"></canvas>
+
+<h1>🏊 Swimming App</h1>
 
 <nav>
-    <button onclick="goTo('freestyle')">Freestyle</button>
-    <button onclick="goTo('backstroke')">Backstroke</button>
-    <button onclick="goTo('breaststroke')">Breaststroke</button>
-    <button onclick="goTo('butterfly')">Butterfly</button>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('styles')">Styles</button>
+    <button onclick="showPage('tips')">Tips</button>
 </nav>
 
-<div class="wave">
-<svg viewBox="0 0 1440 320">
-<path fill="#ff7a00" fill-opacity="0.5"
-d="M0,160L60,165C120,170,240,180,360,170C480,160,600,130,720,130C840,130,960,160,1080,170C1200,180,1320,170,1380,165L1440,160V320H0Z"></path>
-</svg>
+<!-- HOME -->
+<div id="home" class="page active">
+    <div class="card">
+        <h2>🏠 Welcome</h2>
+        <p>Learn swimming techniques and improve your performance.</p>
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+        <iframe src="https://www.youtube.com/embed/5HLW2AI1Ink" allowfullscreen></iframe>
+    </div>
 </div>
 
-<section id="freestyle">
-<div class="card">
-<h2>🏊 Freestyle</h2>
-<p><b>Tips:</b></p>
-<ul>
-<li>Keep body straight and horizontal</li>
-<li>Rotate your body slightly</li>
-<li>Kick continuously</li>
-</ul>
-<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
-<iframe src="https://www.youtube.com/embed/5HLW2AI1Ink" allowfullscreen></iframe>
-</div>
-</section>
+<!-- STYLES -->
+<div id="styles" class="page">
+    <div class="card">
+        <h2>🏊 Freestyle</h2>
+        <p>Fastest and most efficient stroke.</p>
+        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
+        <iframe src="https://www.youtube.com/embed/5HLW2AI1Ink"></iframe>
+    </div>
 
-<section id="backstroke">
-<div class="card">
-<h2>🏊 Backstroke</h2>
-<p><b>Tips:</b></p>
-<ul>
-<li>Keep hips high</li>
-<li>Look straight up</li>
-<li>Use steady kicks</li>
-</ul>
-<img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50">
-<iframe src="https://www.youtube.com/embed/1rKCME8P3uQ" allowfullscreen></iframe>
-</div>
-</section>
+    <div class="card">
+        <h2>🏊 Backstroke</h2>
+        <p>Swim on your back with steady kicks.</p>
+        <img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50">
+        <iframe src="https://www.youtube.com/embed/1rKCME8P3uQ"></iframe>
+    </div>
 
-<section id="breaststroke">
-<div class="card">
-<h2>🏊 Breaststroke</h2>
-<p><b>Tips:</b></p>
-<ul>
-<li>Glide after each stroke</li>
-<li>Keep movements smooth</li>
-<li>Coordinate arms and legs</li>
-</ul>
-<img src="https://images.unsplash.com/photo-1620164161483-8c47b47c5e52">
-<iframe src="https://www.youtube.com/embed/2-LAMcpzODU" allowfullscreen></iframe>
-</div>
-</section>
+    <div class="card">
+        <h2>🏊 Breaststroke</h2>
+        <p>Slow but very technical.</p>
+        <img src="https://images.unsplash.com/photo-1620164161483-8c47b47c5e52">
+        <iframe src="https://www.youtube.com/embed/2-LAMcpzODU"></iframe>
+    </div>
 
-<section id="butterfly">
-<div class="card">
-<h2>🏊 Butterfly</h2>
-<p><b>Tips:</b></p>
-<ul>
-<li>Use wave-like body motion</li>
-<li>Kick twice per stroke</li>
-<li>Stay relaxed</li>
-</ul>
-<img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50">
-<iframe src="https://www.youtube.com/embed/7d8s7o6gkL0" allowfullscreen></iframe>
+    <div class="card">
+        <h2>🏊 Butterfly</h2>
+        <p>Powerful and advanced stroke.</p>
+        <img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50">
+        <iframe src="https://www.youtube.com/embed/7d8s7o6gkL0"></iframe>
+    </div>
 </div>
-</section>
+
+<!-- TIPS -->
+<div id="tips" class="page">
+    <div class="card">
+        <h2>💡 Swimming Tips</h2>
+        <ul>
+            <li>Keep your body horizontal</li>
+            <li>Control your breathing</li>
+            <li>Stay relaxed</li>
+            <li>Practice regularly</li>
+        </ul>
+        <img src="https://images.unsplash.com/photo-1560090995-01632a28895b">
+        <iframe src="https://www.youtube.com/embed/5HLW2AI1Ink"></iframe>
+    </div>
+</div>
 
 <script>
-function goTo(id) {
-    document.getElementById(id).scrollIntoView({behavior: "smooth"});
+/* PAGE SWITCH */
+function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
 }
+
+/* 3D WATER EFFECT */
+const canvas = document.getElementById('water');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let waves = [];
+
+for (let i = 0; i < 3; i++) {
+    waves.push({
+        y: 200 + i * 50,
+        length: 0.01 + i * 0.005,
+        amplitude: 20 + i * 10,
+        speed: 0.02 + i * 0.01
+    });
+}
+
+let t = 0;
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    waves.forEach(w => {
+        ctx.beginPath();
+        for (let x = 0; x < canvas.width; x++) {
+            let y = w.y + Math.sin(x * w.length + t) * w.amplitude;
+            ctx.lineTo(x, y);
+        }
+        ctx.lineTo(canvas.width, canvas.height);
+        ctx.lineTo(0, canvas.height);
+        ctx.fillStyle = "rgba(255,122,0,0.15)";
+        ctx.fill();
+    });
+
+    t += 0.05;
+    requestAnimationFrame(draw);
+}
+
+draw();
 </script>
 
 </body>
